@@ -32,6 +32,8 @@ export class CollisionNotifier extends CorePlugin {
         if (firstCollision?.id !== manager.dragOperation.target?.id) {
           collisionObserver.disable();
 
+          manager.actions.setCollision(firstCollision);
+
           manager.actions.setDropTarget(firstCollision?.id).then(() => {
             collisionObserver.enable();
           });
